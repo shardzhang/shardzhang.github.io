@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhang Yuanzheng — Homepage</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 30px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 40px; color: #fff; font-weight: 700;
+    }
+    .name { font-size: 32px; font-weight: 700; }
+    .name-cn { font-size: 18px; color: #888; margin-top: 2px; }
+    .title-line { font-size: 16px; color: #666; margin-top: 8px; }
+    .contact-line {
+      margin-top: 12px; font-size: 14px; color: #888;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px;
+    }
+    .contact-line a { color: #0366d6; text-decoration: none; }
+    .contact-line a:hover { text-decoration: underline; }
+    .social-links { margin-top: 14px; display: flex; justify-content: center; gap: 14px; }
+    .social-links a {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 18px; border: 1px solid #ddd; border-radius: 20px;
+      font-size: 13px; color: #555; text-decoration: none; transition: all .15s;
+    }
+    .social-links a:hover { background: #f0f0f0; border-color: #bbb; }
+
+    section { margin-top: 40px; }
+    .section-title {
+      font-size: 18px; font-weight: 700; text-transform: uppercase;
+      color: #111; padding-bottom: 8px; border-bottom: 2px solid #333;
+      margin-bottom: 18px;
+    }
+    .section-title small { font-weight: 400; text-transform: none; color: #888; }
+
+    p { margin-bottom: 12px; font-size: 15px; color: #444; }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      padding: 4px 14px; background: #eef1f5; border-radius: 14px;
+      font-size: 13px; color: #555;
+    }
+
+    .exp-item, .proj-item, .edu-item { margin-bottom: 22px; }
+    .exp-header, .proj-header, .edu-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; margin-bottom: 2px;
+    }
+    .exp-title, .proj-title, .edu-title {
+      font-size: 16px; font-weight: 600; color: #222;
+    }
+    .exp-date, .edu-date { font-size: 13px; color: #999; white-space: nowrap; }
+    .exp-company, .proj-sub { font-size: 14px; color: #666; margin-bottom: 6px; }
+    .exp-desc ul, .proj-desc ul { list-style: none; padding-left: 0; }
+    .exp-desc ul li, .proj-desc ul li {
+      position: relative; padding-left: 18px; margin-bottom: 4px;
+      font-size: 14px; color: #555;
+    }
+    .exp-desc ul li::before, .proj-desc ul li::before {
+      content: '•'; position: absolute; left: 4px; color: #999;
+    }
+
+    .pub-item {
+      padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444;
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-venue { color: #0366d6; font-weight: 600; }
+    .pub-title { font-style: italic; }
+    .pub-link { margin-left: 6px; font-size: 13px; }
+
+    .publicationList-item {
+      list-style: circle;
+      padding-bottom: 10px;
+    }
+    a { text-decoration: none; color: saddlebrown; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">Z</div>
+      <div class="name">Zhang Yuanzheng</div>
+      <div class="name-cn">张远征</div>
+      <div class="title-line">Senior Algorithm Engineer</div>
+      <div class="contact-line">
+        <span>📧 zhngd@outlook.com</span>
+        <span>📱 15801309280</span>
+        <span>📍 Beijing</span>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/shardzhang">GitHub</a>
+        <a href="https://www.zhihu.com/people/MonteKarli">知乎</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Short Bio</div>
+      <p>
+        Zhang Yuanzheng is a Senior Algorithm Engineer with over 7 years of experience in building large-scale recommendation systems and deep learning applications. He is currently at Alibaba (Amap), where he leads the development of AI-powered driving guidance broadcasting systems using reinforcement learning with human feedback (RLHF). Previously at VIVO, he drove the full algorithm iteration cycle from LR to deep learning for the App Store's recommendation system, serving hundreds of millions of users. He also created the open-source project <strong>GERBIL</strong>, a production-grade recommendation system covering data engineering, model training, and online serving. He holds a Master's degree from Beijing University of Posts and Telecommunications.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Scala</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Spark</span>
+        <span class="skill-tag">Hive</span>
+        <span class="skill-tag">Hadoop</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Senior Algorithm Engineer</span>
+          <span class="exp-date">2023.12 — 2026.04</span>
+        </div>
+        <div class="exp-company">Alibaba — Amap (Driving)</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Led the first industrial-scale deep learning implementation for navigation guidance broadcasting; upgraded from traditional rule-based expert system to deep learning models</li>
+            <li>Built the NIQ (Navigation Impact Quotient) metric from scratch and introduced RLHF + PPO reward function design to improve driving broadcast accuracy and reduce yaw rate</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Senior Algorithm Engineer</span>
+          <span class="exp-date">2019.07 — 2023.11</span>
+        </div>
+        <div class="exp-company">VIVO — App Store (Domestic &amp; Overseas)</div>
+        <div class="exp-desc">
+          <ul>
+            <li>Led the full algorithm iteration cycle from LR to deep learning era for the App Store recommendation system</li>
+            <li>Evolved ranking models: LR → DeepFM → DIN → DIEN → SIM → PPNET</li>
+            <li>Designed recall pipeline: strategic recall → word2vec/fasttext/swing → YouTube DNN → two-tower model</li>
+            <li>Multi-task &amp; multi-scenario joint modeling, real-time feature engineering, and near-real-time model training</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <span class="proj-title">GERBIL — Open-Source Recommendation System</span>
+          <span class="exp-date">2026.04 — 2026.07</span>
+        </div>
+        <div class="proj-sub">A production-grade recommendation system covering the full pipeline</div>
+        <div class="proj-desc">
+          <ul>
+            <li><strong>gerbil-data</strong>: Feature &amp; sample production framework based on Apache Spark, supporting large-scale feature engineering and high-dimensional sparse sample generation</li>
+            <li><strong>gerbil-train</strong>: Recommendation model training framework based on PyTorch, with 40+ classic models implemented</li>
+            <li><strong>gerbil-serving</strong>: Industrial-grade online real-time inference serving framework supporting PT model loading and real-time strategies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Education</div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-title">Beijing University of Posts and Telecommunications</span>
+          <span class="edu-date">2016 — 2019</span>
+        </div>
+        <div class="exp-company">M.S. in Electronic Science and Technology — 5G wireless communication research, 2 IEEE conference papers</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-title">Harbin University of Science and Technology</span>
+          <span class="edu-date">2012 — 2016</span>
+        </div>
+        <div class="exp-company">B.S. in Communication Engineering — Top 2% of class (rank 3/150), National Inspirational Scholarship</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Selected Publications <small>(coming soon)</small></div>
+      <p style="color: #999;">Papers will be added here.</p>
+    </section>
+
+  </div>
+</body>
+</html>
