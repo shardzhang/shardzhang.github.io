@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,6 @@
     .name { font-size: 32px; font-weight: 700; }
     .name-cn { font-size: 18px; color: #888; margin-top: 2px; }
     .title-line { font-size: 16px; color: #666; margin-top: 8px; }
-    .meta-line { font-size: 13px; color: #aaa; margin-top: 6px; }
     .contact-line {
       margin-top: 14px; font-size: 14px; color: #888;
       display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px;
@@ -83,6 +82,9 @@
       content: '•'; position: absolute; left: 4px; color: #999;
     }
 
+    .proj-desc a { color: #0366d6; text-decoration: none; }
+    .proj-desc a:hover { text-decoration: underline; }
+
     .proj-tag {
       display: inline-block; padding: 1px 8px; background: #dde7f3;
       color: #2c5a91; border-radius: 10px; font-size: 12px; margin-left: 6px;
@@ -115,7 +117,7 @@
     <section>
       <div class="section-title">Short Bio</div>
       <p>
-        Zhang Da is a Senior Algorithm Engineer with 7 years of experience in recommendation and search systems. He currently works at Alibaba (Amap) on AI-driven driving navigation broadcasting, where he leads deep-learning deployment for multi-task modeling, sequential modeling, and end-cloud co-design, and built the NIQ (Navigation Impact Quotient) experience metric from zero to one. Previously at VIVO, he led the evolution of the App Store recommendation system through multiple generations of models — from LR to deep learning — covering retrieval, ranking, re-ranking, and real-time data infrastructure. He also created the open-source project <strong>GERBIL</strong>, a full-pipeline production-grade recommendation system. He holds a Master's degree in Electronic Science and Technology from Beijing University of Posts and Telecommunications, with two IEEE conference papers to his name.
+        Zhang Da is a Senior Algorithm Engineer with 7 years of experience in recommendation and search systems. At Alibaba (Amap), he worked on AI-driven driving navigation broadcasting, leading deep-learning deployment for multi-task modeling, sequential modeling, and end-cloud co-design, and built the NIQ experience metric from zero to one. Previously at VIVO, he led the evolution of the App Store recommendation system through multiple generations of models — from LR to deep learning — covering retrieval, ranking, re-ranking, and real-time data infrastructure. He also created the open-source project <strong>GERBIL</strong>, a full-pipeline production-grade recommendation system. He holds a Master's degree in Electronic Science and Technology from Beijing University of Posts and Telecommunications, with two IEEE conference papers to his name.
       </p>
     </section>
 
@@ -189,9 +191,9 @@
         <div class="proj-bg">Distilled 7 years of data, algorithm, and engineering experience into a full-pipeline production-grade recommendation system.</div>
         <div class="proj-desc">
           <ul>
-            <li><strong>gerbil-data</strong> — Feature engineering &amp; sample production</li>
-            <li><strong>gerbil-train</strong> — Model training and evaluation</li>
-            <li><strong>gerbil-serving</strong> — Online inference service</li>
+            <li><a href="https://github.com/shardzhang/gerbil-data"><strong>gerbil-data</strong></a> — Feature engineering &amp; sample production</li>
+            <li><a href="https://github.com/shardzhang/gerbil-train"><strong>gerbil-train</strong></a> — Model training and evaluation</li>
+            <li><a href="https://github.com/shardzhang/gerbil-serving"><strong>gerbil-serving</strong></a> — Online inference service</li>
           </ul>
         </div>
       </div>
