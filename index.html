@@ -3,279 +3,415 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhang Da — Homepage</title>
+  <title>Da Zhang (张达)</title>
+  <meta name="description" content="Da Zhang — Senior Algorithm Engineer specializing in large-scale recommender systems, sequential & multi-task modeling, and production ML infrastructure.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --text: #1a1a1a;
+      --body: #374151;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #1d4ed8;
+      --bg-subtle: #f8fafc;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background: #fafafa;
-      color: #333;
-      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #ffffff;
+      color: var(--body);
+      line-height: 1.68;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: 900px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 50px 30px;
+      padding: 64px 28px 80px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
+    /* Header */
     header {
-      text-align: center;
-      padding: 40px 0 30px;
-      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
     }
-    .avatar {
-      width: 120px; height: 120px; border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px; font-size: 40px; color: #fff; font-weight: 700;
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .name { font-size: 32px; font-weight: 700; }
-    .name-cn { font-size: 18px; color: #888; margin-top: 2px; }
-    .title-line { font-size: 16px; color: #666; margin-top: 8px; }
-    .contact-line {
-      margin-top: 14px; font-size: 14px; color: #888;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px;
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
     }
-    .contact-line a { color: #0366d6; text-decoration: none; }
-    .contact-line a:hover { text-decoration: underline; }
-    .social-links { margin-top: 14px; display: flex; justify-content: center; gap: 14px; }
-    .social-links a {
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 6px 18px; border: 1px solid #ddd; border-radius: 20px;
-      font-size: 13px; color: #555; text-decoration: none; transition: all .15s;
+    .name-cn {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--muted);
     }
-    .social-links a:hover { background: #f0f0f0; border-color: #bbb; }
-
-    section { margin-top: 40px; }
-    .section-title {
-      font-size: 18px; font-weight: 700; text-transform: uppercase;
-      color: #111; padding-bottom: 8px; border-bottom: 2px solid #333;
-      margin-bottom: 18px;
+    .headline {
+      margin-top: 6px;
+      font-size: 16px;
+      color: var(--body);
+      font-weight: 500;
     }
-
-    p { margin-bottom: 12px; font-size: 15px; color: #444; }
-
-    .skill-group { margin-bottom: 14px; }
-    .skill-group-label { font-size: 14px; font-weight: 600; color: #555; margin-bottom: 6px; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-tag {
-      padding: 4px 14px; background: #eef1f5; border-radius: 14px;
-      font-size: 13px; color: #555;
+    .meta-links {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+    }
+    .meta-links .sep {
+      color: #d1d5db;
     }
 
-    .exp-item, .proj-item, .edu-item { margin-bottom: 24px; }
-    .exp-header, .proj-header, .edu-header {
-      display: flex; justify-content: space-between; align-items: baseline;
-      flex-wrap: wrap; margin-bottom: 4px; gap: 8px;
+    /* Sections */
+    section {
+      margin-top: 40px;
     }
-    .exp-title, .proj-title, .edu-title {
-      font-size: 16px; font-weight: 600; color: #222;
+    h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
     }
-    .exp-date, .edu-date { font-size: 13px; color: #999; white-space: nowrap; }
-    .exp-company, .proj-sub { font-size: 14px; color: #666; margin-bottom: 8px; }
-    .exp-desc ul, .proj-desc ul { list-style: none; padding-left: 0; }
-    .exp-desc ul li, .proj-desc ul li {
-      position: relative; padding-left: 18px; margin-bottom: 5px;
-      font-size: 14px; color: #555;
-    }
-    .exp-desc ul li::before, .proj-desc ul li::before {
-      content: '•'; position: absolute; left: 4px; color: #999;
+    p {
+      margin-bottom: 12px;
     }
 
-    .proj-desc a { color: #0366d6; text-decoration: none; }
-    .proj-desc a:hover { text-decoration: underline; }
-
-    .proj-tag {
-      display: inline-block; padding: 1px 8px; background: #dde7f3;
-      color: #2c5a91; border-radius: 10px; font-size: 12px; margin-left: 6px;
+    /* Open Source Card */
+    .oss-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
     }
-    .proj-bg {
-      font-size: 13px; color: #888; background: #f5f5f5;
-      padding: 8px 12px; border-left: 3px solid #ccc;
-      margin: 8px 0; font-style: italic;
+    .oss-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .oss-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .oss-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .oss-summary {
+      font-size: 14.5px;
+      margin-bottom: 12px;
+    }
+    .oss-list {
+      list-style: none;
+    }
+    .oss-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .oss-list li:last-child {
+      margin-bottom: 0;
+    }
+    .oss-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* Experience */
+    .role {
+      margin-bottom: 32px;
+    }
+    .role:last-child {
+      margin-bottom: 0;
+    }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .role-org {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .role-org span {
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .role-date {
+      font-size: 13.5px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .role-summary {
+      margin-top: 6px;
+      margin-bottom: 12px;
+      font-size: 14.5px;
+    }
+    .work-block {
+      margin-top: 12px;
+      padding-left: 14px;
+      border-left: 2px solid var(--border);
+    }
+    .work-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .work-list {
+      list-style: none;
+    }
+    .work-list li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    .work-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* Technical Stack */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      row-gap: 10px;
+      column-gap: 16px;
+      font-size: 14px;
+    }
+    .stack-label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Education */
+    .edu-item {
+      margin-bottom: 16px;
+    }
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .edu-school {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .edu-detail {
+      font-size: 14px;
+      color: var(--body);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 20px 60px; }
+      .stack-grid { grid-template-columns: 1fr; row-gap: 4px; }
+      .stack-label { margin-top: 6px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="avatar">Z</div>
-      <div class="name">Zhang Da</div>
-      <div class="name-cn">张达</div>
-      <div class="title-line">Senior Algorithm Engineer</div>
-      <div class="contact-line">
-        <span>📧 zhngd [at] outlook [dot] com</span>
-        <span>📍 Beijing</span>
+      <div class="name-row">
+        <h1>Da Zhang</h1>
+        <span class="name-cn">张达</span>
       </div>
-      <div class="social-links">
-        <a href="https://github.com/shardzhang">GitHub</a>
-        <a href="https://www.zhihu.com/people/MonteKarli">知乎 / Shard Zhang</a>
+      <div class="headline">Senior Algorithm Engineer · Recommender Systems &amp; Deep Learning</div>
+      <div class="meta-links">
+        <span>zhngd [at] outlook [dot] com</span>
+        <span class="sep">·</span>
+        <a href="https://github.com/shardzhang">GitHub (@shardzhang)</a>
+        <span class="sep">·</span>
+        <a href="https://www.zhihu.com/people/MonteKarli">Zhihu (Shard Zhang)</a>
+        <span class="sep">·</span>
+        <span>Beijing, China</span>
       </div>
     </header>
 
     <section>
-      <div class="section-title">Short Bio</div>
+      <h2>About</h2>
       <p>
-        Zhang Da is a Senior Algorithm Engineer with 7 years of experience in recommendation and search systems. At Alibaba (Amap), he worked on AI-driven driving navigation broadcasting, leading deep-learning deployment for multi-task modeling, sequential modeling, and end-cloud co-design, and built the NIQ experience metric from zero to one. Previously at VIVO, he led the evolution of the App Store recommendation system through multiple generations of models — from LR to deep learning — covering retrieval, ranking, re-ranking, and real-time data infrastructure. He also created the open-source project <strong>GERBIL</strong>, a full-pipeline production-grade recommendation system. He holds a Master's degree in Electronic Science and Technology from Beijing University of Posts and Telecommunications, with two IEEE conference papers to his name.
+        I am a Senior Algorithm Engineer with 7 years of industry experience designing and scaling large-scale recommender systems and deep learning applications. At <strong>Alibaba (Amap)</strong>, I worked on AI-driven Turn-by-Turn (TBT) navigation voice guidance, leading multi-task sequential modeling, device-cloud collaborative inference, and the design of the NIQ user-experience alignment framework across 200M+ daily navigation sessions. Previously at <strong>vivo</strong>, I led the recommendation algorithm evolution for the domestic and international App Stores—spanning two-tower retrieval, multi-generation deep ranking, real-time feature pipelines, and diversity re-ranking.
+      </p>
+      <p>
+        I am also the creator of <strong>GERBIL</strong>, an open-source, end-to-end recommender system framework covering distributed feature engineering, 40+ PyTorch model implementations, and low-latency online serving. I received my M.S. in Electronic Science and Technology from Beijing University of Posts and Telecommunications.
       </p>
     </section>
 
     <section>
-      <div class="section-title">Skills</div>
-      <div class="skill-group">
-        <div class="skill-group-label">Recommendation &amp; Search</div>
-        <div class="skill-tags">
-          <span class="skill-tag">User Sequence Modeling</span>
-          <span class="skill-tag">Multi-task / Multi-domain Modeling</span>
-          <span class="skill-tag">Diversity Re-ranking</span>
-          <span class="skill-tag">Traffic Control</span>
-          <span class="skill-tag">Relevance Retrieval</span>
-          <span class="skill-tag">CTR Prediction</span>
+      <h2>Open Source</h2>
+      <div class="oss-box">
+        <div class="oss-header">
+          <div class="oss-title">GERBIL — General Efficient Recommender for Benchmarking, Inference, and Learning</div>
+          <div class="oss-meta">Creator &amp; Maintainer · 70+ GitHub Stars</div>
         </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Engineering</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Scala</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">Linux Shell</span>
-          <span class="skill-tag">Hadoop / HDFS / Spark</span>
-          <span class="skill-tag">PyTorch / TensorFlow</span>
-        </div>
+        <p class="oss-summary">
+          A production-grade, full-pipeline recommendation framework distilling seven years of industrial experience across distributed data engineering, deep model training, and online inference.
+        </p>
+        <ul class="oss-list">
+          <li>
+            <a href="https://github.com/shardzhang/gerbil-data"><strong>gerbil-data</strong></a> (Scala, Spark, C++, Airflow) — Distributed ETL and feature engineering pipeline with YAML-driven feature registries, multi-window behavior sequence extraction, popularity-biased negative sampling, incremental vocabulary management, and cross-run data drift monitoring. Includes a bit-exact C++ featurizer sharing binary vocabularies and MurmurHash3 with Scala to eliminate training-serving skew.
+          </li>
+          <li>
+            <a href="https://github.com/shardzhang/gerbil-train"><strong>gerbil-train</strong></a> (Python, PyTorch) — Config-driven training and benchmarking suite implementing <strong>40+ classic and modern recommendation architectures</strong> across Retrieval (YouTubeDNN, Two-Tower, EGES, SSL), CTR Ranking (FM, Wide&amp;Deep, DeepFM, xDeepFM, DCNv2, FiBiNet, AutoInt, DLRM, MaskNet), Sequential Modeling (DIN, DIEN, DSIN, MIMN, SIM, MIND, BST, ETA, SDIM, SASRec, BERT4Rec, TWIN), and Multi-Task / Multi-Domain Learning (ESMM, MMoE, PLE, PEPNet, STAR, AdaTT).
+          </li>
+          <li>
+            <a href="https://github.com/shardzhang/gerbil-serving"><strong>gerbil-serving</strong></a> — Low-latency online inference service supporting model artifact versioning, real-time feature transformation, scoring/ranking APIs, and observability hooks.
+          </li>
+        </ul>
       </div>
     </section>
 
     <section>
-      <div class="section-title">Experience</div>
+      <h2>Experience</h2>
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Senior Algorithm Engineer</span>
-          <span class="exp-date">2023.12 — 2026.04</span>
+      <div class="role">
+        <div class="role-header">
+          <div class="role-org">Alibaba Group — Amap (AutoNavi) <span>· Senior Algorithm Engineer</span></div>
+          <div class="role-date">2023.12 – 2026.04</div>
         </div>
-        <div class="exp-company">Alibaba — Amap (Driving)</div>
-        <div class="exp-desc">
-          <ul>
-            <li>Owner of the driving navigation broadcasting algorithm; led the industrial-scale deployment of deep learning covering multi-task modeling, sequential modeling, and end-cloud co-design</li>
-            <li>Designed the NIQ experience metric from zero to one, and drove metric-based data augmentation and experience alignment to continuously lower the yaw rate</li>
+        <p class="role-summary">
+          Tech lead for Turn-by-Turn (TBT) driving voice guidance algorithms, driving the paradigm shift from rule-based expert systems to data-driven deep learning at massive scale (~200M daily navigation sessions).
+        </p>
+
+        <div class="work-block">
+          <div class="work-title">Deep Multi-Task &amp; Device-Cloud Collaborative Guidance Model (2023.12 – 2025.04)</div>
+          <ul class="work-list">
+            <li>Jointly modeled four coupled tasks—broadcast timing, maneuver action, content selection, and playback ordering—within a unified multi-task architecture to resolve competing objectives.</li>
+            <li>Incorporated causal self-attention over historical broadcast sequences (+5.5% timing accuracy) and CrossNet for explicit high-order feature interactions (+4.1% action accuracy).</li>
+            <li>Co-designed a device-cloud inference pipeline: pre-computed road-segment representations in the cloud and executed low-latency on-device fusion via MNN (FP16).</li>
+            <li><strong>Impact:</strong> Trained on 1.56B trajectory samples and deployed to 100% production traffic, reducing overall route deviation rate from 5.16% to 5.14% (~40k fewer off-route incidents/day) while adding only 2–4 characters per prompt.</li>
+          </ul>
+        </div>
+
+        <div class="work-block">
+          <div class="work-title">NIQ Experience Metric &amp; Post-Training Alignment (2025.04 – 2026.04)</div>
+          <ul class="work-list">
+            <li>Designed the NIQ user-compliance metric from scratch to bridge the gap between weak offline supervision and real-world driving experience.</li>
+            <li>Leveraged compliance scores to infer optimal broadcast timing, relabeling historical trajectories for domain-informed data augmentation.</li>
+            <li>Built a supervised fine-tuning (SFT) pipeline on high-compliance trajectories to align pretrained guidance models with human driving preferences.</li>
+            <li><strong>Impact:</strong> Further reduced route deviation rate from 5.12% to 5.11% (~20k fewer off-route incidents/day) and improved user compliance score from 2.5 to 3.7 (+48%).</li>
           </ul>
         </div>
       </div>
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Senior Algorithm Engineer</span>
-          <span class="exp-date">2019.07 — 2023.12</span>
+      <div class="role">
+        <div class="role-header">
+          <div class="role-org">vivo — App Store (Domestic &amp; International) <span>· Senior Algorithm Engineer</span></div>
+          <div class="role-date">2019.07 – 2023.12</div>
         </div>
-        <div class="exp-company">VIVO — App Store (Domestic &amp; Overseas)</div>
-        <div class="exp-desc">
-          <ul>
-            <li>Owner of the APP content distribution algorithm; covered relevance retrieval, ranking, re-ranking, and traffic control in large-scale recommendation scenarios</li>
-            <li>Led the 0→1 deep ranking system and real-time capability construction; drove multiple generations of model iteration, engineering deployment, and cross-team collaboration</li>
+        <p class="role-summary">
+          Led end-to-end recommendation algorithms across candidate retrieval, deep ranking, diversity re-ranking, and traffic control for domestic and international app marketplaces.
+        </p>
+
+        <div class="work-block">
+          <div class="work-title">Detail-Page Contextual App Recommendation · Domestic Store (2019.07 – 2022.03)</div>
+          <ul class="work-list">
+            <li><strong>Retrieval:</strong> Upgraded candidate generation from ItemCF to YouTubeDNN with sampled softmax training and HNSW approximate nearest neighbor serving (+2.7% conversion efficiency, +84k daily app installs).</li>
+            <li><strong>Five-Generation Deep Ranking Evolution:</strong> Built the deep ranking pipeline from the ground up, progressing through (1) Embedding+MLP with shallow position-bias tower, (2) parent–candidate app cross-probing over user behavior history, (3) dual self-/target-attention with temporal encoding, (4) multi-task joint learning across direct install, detail click, and post-click install, and (5) pre-/post-install multi-domain gating.</li>
+            <li><strong>Impact:</strong> Delivered cumulative gains of ~800k additional daily app installs across five major model generations.</li>
           </ul>
         </div>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-title">Selected Projects</div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-title">GERBIL — Open-Source Recommendation System <span class="proj-tag">Owner</span></span>
-          <span class="exp-date">2026.04 — 2026.07</span>
-        </div>
-        <div class="proj-sub">GitHub · 50+ Stars</div>
-        <div class="proj-bg">Distilled 7 years of data, algorithm, and engineering experience into a full-pipeline production-grade recommendation system.</div>
-        <div class="proj-desc">
-          <ul>
-            <li><a href="https://github.com/shardzhang/gerbil-data"><strong>gerbil-data</strong></a> — Feature engineering &amp; sample production</li>
-            <li><a href="https://github.com/shardzhang/gerbil-train"><strong>gerbil-train</strong></a> — Model training and evaluation</li>
-            <li><a href="https://github.com/shardzhang/gerbil-serving"><strong>gerbil-serving</strong></a> — Online inference service</li>
+        <div class="work-block">
+          <div class="work-title">Real-Time Feature Infrastructure &amp; PID Traffic Control · International Store (2022.03 – 2023.03)</div>
+          <ul class="work-list">
+            <li>Architected the end-to-end streaming pipeline covering real-time event ingestion (impression, click, install, uninstall, usage), online feature join at impression time to eliminate training-serving skew, and real-time sequence/CTR features—boosting conversion efficiency by +5.63% (Homepage), +4.78% (Detail Page), and +8.13% (Folders).</li>
+            <li>Designed an asynchronous Redis-backed PID controller over sliding impression windows to regulate mixed-feed exposure ratios, tightening traffic allocation error from 10% to 0.5%.</li>
           </ul>
         </div>
-      </div>
 
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-title">Driving Navigation Broadcasting — NIQ Metric <span class="proj-tag">Owner</span></span>
-          <span class="exp-date">2025.04 — 2026.04</span>
-        </div>
-        <div class="proj-sub">Alibaba — Amap</div>
-        <div class="proj-bg">Weak supervision signals and offline/online metric misalignment left the broadcast task without a clear optimization lever.</div>
-        <div class="proj-desc">
-          <ul>
-            <li>Designed the cooperation-score metric to quantify user experience into a measurable, optimizable target</li>
-            <li>Used the metric to compute ideal broadcast timing and correct sample labels for data augmentation</li>
-            <li>Built an SFT pipeline to fine-tune the broadcast model with high-score samples, aligning model output with user experience</li>
-            <li><strong>Result:</strong> Yaw rate 5.12% → 5.11%; cooperation score 2.5 → 3.7 (+48%)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-title">Driving Navigation Broadcasting — Deep Model <span class="proj-tag">Core Member</span></span>
-          <span class="exp-date">2023.12 — 2025.04</span>
-        </div>
-        <div class="proj-sub">Alibaba — Amap</div>
-        <div class="proj-bg">Traditional rule-based broadcasting couldn't be data-driven and suffered from multi-objective conflicts.</div>
-        <div class="proj-desc">
-          <ul>
-            <li>Unified four tasks (timing, action, info, order) under multi-task modeling to resolve trade-offs</li>
-            <li>Introduced causal self-attention for sequential dependency; CrossNet for explicit feature crosses</li>
-            <li>End-cloud co-design with cloud pre-computation and on-device fusion (MNN, float16)</li>
-            <li><strong>Result:</strong> Yaw rate 5.16% → 5.14% (~40k fewer daily mis-routes), broadcast density only +2-4 chars</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="proj-item">
-        <div class="proj-header">
-          <span class="proj-title">VIVO App Store — Recommendation Evolution <span class="proj-tag">Owner</span></span>
-          <span class="exp-date">2019.07 — 2023.12</span>
-        </div>
-        <div class="proj-sub">VIVO — Domestic &amp; Overseas Stores</div>
-        <div class="proj-desc">
-          <ul>
-            <li><strong>Detail-page (Domestic):</strong> Built the deep ranking system from zero to one, driving 5 generations of model evolution — cumulative +800k daily distribution. Recall upgrade ItemCF → YouTubeDNN with Sampled Softmax and HNSW</li>
-            <li><strong>Real-time Infrastructure (Overseas):</strong> Built end-to-end real-time pipeline (tracking → validation → deployment), enabling real-time data, features, samples, and retrieval. Distribution efficiency +5.63% / +4.78% / +8.13% across scenarios; real-time PID exposure control accuracy 10% → 0.5%</li>
-            <li><strong>Homepage (Overseas):</strong> Built two-tower retrieval with hard negative mining; multi-country joint modeling with domain-specific gating; MMR diversity re-ranking (ILS -1.52%)</li>
+        <div class="work-block">
+          <div class="work-title">Multi-Country Homepage Recommendation · International Store (2023.03 – 2023.12)</div>
+          <ul class="work-list">
+            <li><strong>Two-Tower Retrieval:</strong> Built a DSSM semantic retrieval pipeline trained with in-batch negatives, logQ popularity debiasing, L2-normalized temperature scaling, and online hard negatives (+2.6% conversion efficiency, +17k daily installs).</li>
+            <li><strong>Multi-Country Domain Adaptation:</strong> Mitigated negative transfer across heterogeneous markets and low-resource languages via domain-specific gating (country, language, device, network) and prior injection (+0.8% efficiency).</li>
+            <li><strong>MMR Diversity Re-ranking:</strong> Used icon visual embedding cosine distance with sliding-window LRU caching to suppress same-screen homogeneity, reducing Intra-List Similarity (ILS@10) by 1.52% and lifting impressions per user by +1.1%.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="section-title">Education</div>
+      <h2>Technical Stack</h2>
+      <div class="stack-grid">
+        <div class="stack-label">Modeling &amp; Algorithms</div>
+        <div>Sequential User Modeling, Multi-Task &amp; Multi-Domain Learning, Two-Tower / ANN Retrieval, CTR/CVR Ranking, MMR Diversity Re-ranking, PID Traffic Control, SFT &amp; Post-Training Alignment</div>
+        <div class="stack-label">Systems &amp; Languages</div>
+        <div>Python, Scala, C++, Linux Shell, PyTorch, TensorFlow, Apache Spark, Hadoop / HDFS, Airflow, HNSW, MNN</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
 
       <div class="edu-item">
         <div class="edu-header">
-          <span class="edu-title">Beijing University of Posts and Telecommunications</span>
-          <span class="edu-date">2016.09 — 2019.06</span>
+          <div class="edu-school">Beijing University of Posts and Telecommunications</div>
+          <div class="role-date">2016.09 – 2019.06</div>
         </div>
-        <div class="exp-company">M.S. in Electronic Science and Technology · 2 IEEE conference papers · Huawei Cup Mathematical Modeling (3rd Prize) · Outstanding Graduate</div>
+        <div class="edu-detail">
+          M.S. in Electronic Science and Technology · 2 IEEE Conference Papers · Third Prize, China Graduate Mathematical Modeling Contest · Outstanding Graduate
+        </div>
       </div>
 
       <div class="edu-item">
         <div class="edu-header">
-          <span class="edu-title">Harbin University of Science and Technology</span>
-          <span class="edu-date">2012.09 — 2016.06</span>
+          <div class="edu-school">Harbin University of Science and Technology</div>
+          <div class="role-date">2012.09 – 2016.06</div>
         </div>
-        <div class="exp-company">B.S. in Communication Engineering · Top 2% (3/150) · Graduate Recommendation · National Inspirational Scholarship · MCM/ICM M Award</div>
+        <div class="edu-detail">
+          B.S. in Communication Engineering · Rank 3/150 (Top 2%) · Direct Graduate Admission Waiver · National Endeavor Scholarship · Meritorious Winner, MCM/ICM
+        </div>
       </div>
     </section>
 
     <!-- Selected Publications: uncomment and fill in when ready
     <section>
-      <div class="section-title">Selected Publications</div>
-      <ul>
-        <li><b>[Venue Year]</b> Authors. "<i>Title</i>". Venue, Year. [<a href="#">LINK</a>]</li>
+      <h2>Selected Publications</h2>
+      <ul class="work-list">
+        <li><b>[Venue Year]</b> Authors. "<i>Paper Title</i>". Venue, Year. [<a href="#">PDF</a>]</li>
       </ul>
     </section>
     -->
-
   </div>
 </body>
 </html>
